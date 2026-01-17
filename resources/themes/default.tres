@@ -1,0 +1,6 @@
+[gd_resource type="Theme" load_steps=2 format=3 uid="uid://p0r6icifnvy1"]
+
+[ext_resource type="FontFile" uid="uid://c3dkctnonfkd5" path="res://assets/fonts/jetbrains_mono_bold.ttf" id="1_sn1o5"]
+
+[resource]
+default_font = ExtResource("1_sn1o5")
