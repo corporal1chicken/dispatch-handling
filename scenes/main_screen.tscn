@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://bb2ecutdjxdkx"]
+[gd_scene load_steps=4 format=3 uid="uid://bb2ecutdjxdkx"]
 
 [ext_resource type="Texture2D" uid="uid://mc41di0s4uvw" path="res://assets/icons/menu.png" id="1_7fvvs"]
 [ext_resource type="Theme" uid="uid://p0r6icifnvy1" path="res://resources/themes/default.tres" id="1_kusfh"]
+[ext_resource type="PackedScene" uid="uid://butgavw5t41ek" path="res://scenes/sections/messages.tscn" id="2_aum10"]
 
 [node name="main_screen" type="Control"]
 layout_mode = 3
@@ -24,7 +25,15 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="messages" type="Panel" parent="."]
+[node name="messages" parent="." instance=ExtResource("2_aum10")]
+layout_mode = 1
+offset_left = -680.0
+offset_top = -560.0
+offset_right = 0.0
+offset_bottom = 0.0
+
+[node name="messages_old" type="Panel" parent="."]
+visible = false
 layout_mode = 1
 anchors_preset = 3
 anchor_left = 1.0
@@ -36,7 +45,7 @@ offset_top = -560.0
 grow_horizontal = 0
 grow_vertical = 0
 
-[node name="buttons" type="Panel" parent="messages"]
+[node name="buttons" type="Panel" parent="messages_old"]
 layout_mode = 1
 anchors_preset = 4
 anchor_top = 0.5
@@ -47,7 +56,7 @@ offset_right = -2.0
 offset_bottom = 280.0
 grow_vertical = 2
 
-[node name="HBoxContainer" type="VBoxContainer" parent="messages/buttons"]
+[node name="HBoxContainer" type="VBoxContainer" parent="messages_old/buttons"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -56,31 +65,31 @@ grow_horizontal = 2
 grow_vertical = 2
 alignment = 1
 
-[node name="caller" type="Button" parent="messages/buttons/HBoxContainer"]
+[node name="caller" type="Button" parent="messages_old/buttons/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_font_sizes/font_size = 32
 text = "Caller"
 
-[node name="radio" type="Button" parent="messages/buttons/HBoxContainer"]
+[node name="radio" type="Button" parent="messages_old/buttons/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_font_sizes/font_size = 32
 text = "Radio"
 
-[node name="superiors" type="Button" parent="messages/buttons/HBoxContainer"]
+[node name="superiors" type="Button" parent="messages_old/buttons/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_font_sizes/font_size = 32
 text = "Superiors"
 
-[node name="superiors2" type="Button" parent="messages/buttons/HBoxContainer"]
+[node name="superiors2" type="Button" parent="messages_old/buttons/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_font_sizes/font_size = 32
 text = "Media"
 
-[node name="temporary" type="RichTextLabel" parent="messages"]
+[node name="temporary" type="RichTextLabel" parent="messages_old"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -93,6 +102,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="map" type="Panel" parent="."]
+visible = false
 layout_mode = 1
 anchors_preset = 1
 anchor_left = 1.0
@@ -115,13 +125,14 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="report" type="Panel" parent="."]
+visible = false
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -474.0
+offset_left = -589.0
 offset_top = -433.0
 offset_right = 76.0
 offset_bottom = 424.0
@@ -133,7 +144,7 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -1.0
+offset_left = 1.0
 offset_right = -1.0
 grow_horizontal = 2
 grow_vertical = 2
@@ -149,9 +160,9 @@ anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -256.0
+offset_left = -321.5
 offset_top = 2.0
-offset_right = 256.0
+offset_right = 331.5
 offset_bottom = 108.0
 grow_horizontal = 2
 grow_vertical = 0
@@ -177,6 +188,12 @@ size_flags_horizontal = 3
 theme_override_font_sizes/font_size = 32
 text = "--"
 
+[node name="radio2" type="Button" parent="report/buttons/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 32
+text = "--"
+
 [node name="superiors" type="Button" parent="report/buttons/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
@@ -184,13 +201,14 @@ theme_override_font_sizes/font_size = 32
 text = "SEND"
 
 [node name="units" type="Panel" parent="."]
+visible = false
 layout_mode = 1
 anchors_preset = 4
 anchor_top = 0.5
 anchor_bottom = 0.5
 offset_top = -433.0
-offset_right = 482.0
-offset_bottom = 144.0
+offset_right = 371.0
+offset_bottom = 276.0
 grow_vertical = 2
 
 [node name="temporary" type="RichTextLabel" parent="units"]
@@ -208,6 +226,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="topbar" type="Panel" parent="."]
+visible = false
 layout_mode = 1
 anchors_preset = 10
 anchor_right = 1.0
@@ -278,3 +297,68 @@ theme_override_colors/default_color = Color(0, 0.9183551, 0.28370306, 1)
 theme_override_font_sizes/normal_font_size = 32
 text = "[✓] NO INCIDENT"
 vertical_alignment = 1
+
+[node name="buttons" type="Panel" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -255.0
+offset_right = 372.0
+grow_vertical = 0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="buttons"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="buttons/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+alignment = 1
+
+[node name="4" type="Button" parent="buttons/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 32
+text = "--"
+
+[node name="5" type="Button" parent="buttons/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 32
+text = "--"
+
+[node name="6" type="Button" parent="buttons/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 32
+text = "--"
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="buttons/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+alignment = 1
+
+[node name="4" type="Button" parent="buttons/HBoxContainer/VBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 32
+text = "--"
+
+[node name="5" type="Button" parent="buttons/HBoxContainer/VBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 32
+text = "--"
+
+[node name="6" type="Button" parent="buttons/HBoxContainer/VBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 32
+text = "--"

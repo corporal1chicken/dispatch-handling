@@ -1,4 +1,6 @@
-[gd_scene format=3 uid="uid://dey7ydup5n3d"]
+[gd_scene load_steps=2 format=3 uid="uid://dey7ydup5n3d"]
+
+[ext_resource type="PackedScene" uid="uid://bb2ecutdjxdkx" path="res://scenes/main_screen.tscn" id="1_3ga5c"]
 
 [node name="ui_controller" type="Control"]
 layout_mode = 3
@@ -7,3 +9,6 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+
+[node name="main_screen" parent="." instance=ExtResource("1_3ga5c")]
+layout_mode = 1
