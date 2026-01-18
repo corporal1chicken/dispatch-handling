@@ -15,6 +15,15 @@ run/main_scene="uid://dey7ydup5n3d"
 config/features=PackedStringArray("4.5", "Forward Plus")
 config/icon="res://icon.svg"
 
+[autoload]
+
+GameCycle="*res://autoloads/game_cycle.gd"
+Signals="*res://autoloads/signals.gd"
+
+[debug]
+
+gdscript/warnings/unused_signal=0
+
 [display]
 
 window/size/viewport_width=1920

@@ -1,18 +1,17 @@
 [gd_scene load_steps=2 format=3 uid="uid://butgavw5t41ek"]
 
-[ext_resource type="Script" uid="uid://dcbfqvd1nl3af" path="res://scenes/sections/messages.gd" id="1_7y7tx"]
+[ext_resource type="Script" uid="uid://dcbfqvd1nl3af" path="res://scenes/sections/messages/messages.gd" id="1_7y7tx"]
 
 [node name="messages" type="Panel"]
-anchors_preset = 3
-anchor_left = 1.0
+anchors_preset = 7
+anchor_left = 0.5
 anchor_top = 1.0
-anchor_right = 1.0
+anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -675.0
-offset_top = -562.0
-offset_right = 5.0
-offset_bottom = -2.0
-grow_horizontal = 0
+offset_left = -281.0
+offset_top = -454.0
+offset_right = 340.0
+grow_horizontal = 2
 grow_vertical = 0
 script = ExtResource("1_7y7tx")
 
@@ -73,28 +72,6 @@ text = "MESSAGES GOES HERE"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="holders" type="Control" parent="."]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="caller" type="ColorRect" parent="holders"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = 1.0
-offset_right = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-color = Color(1, 1, 1, 0)
-
-[node name="Timer" type="Timer" parent="."]
-one_shot = true
-
 [node name="template_label" type="RichTextLabel" parent="."]
 visible = false
 layout_mode = 1
@@ -103,13 +80,40 @@ anchor_left = 0.04117647
 anchor_top = 0.028571429
 anchor_right = 0.9588235
 anchor_bottom = 0.12857144
-offset_left = 1.0
-offset_right = 1.0
+offset_left = 2.0
+offset_right = 2.0
 grow_horizontal = 2
 theme_override_font_sizes/normal_font_size = 18
 bbcode_enabled = true
 text = "[CALLER]: My address is [], I can hear them coming up the stairs"
+autowrap_mode = 2
 vertical_alignment = 1
 metadata/_edit_use_anchors_ = true
 
-[connection signal="pressed" from="buttons/HBoxContainer/caller" to="." method="_on_caller_pressed"]
+[node name="holders" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="caller" type="ScrollContainer" parent="holders"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 1.0
+offset_right = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+horizontal_scroll_mode = 0
+scroll_deadzone = 1
+
+[node name="Control" type="Control" parent="holders/caller"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Timer" type="Timer" parent="."]
+one_shot = true

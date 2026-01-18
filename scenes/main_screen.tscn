@@ -1,8 +1,12 @@
-[gd_scene load_steps=4 format=3 uid="uid://bb2ecutdjxdkx"]
+[gd_scene load_steps=8 format=3 uid="uid://bb2ecutdjxdkx"]
 
 [ext_resource type="Texture2D" uid="uid://mc41di0s4uvw" path="res://assets/icons/menu.png" id="1_7fvvs"]
 [ext_resource type="Theme" uid="uid://p0r6icifnvy1" path="res://resources/themes/default.tres" id="1_kusfh"]
-[ext_resource type="PackedScene" uid="uid://butgavw5t41ek" path="res://scenes/sections/messages.tscn" id="2_aum10"]
+[ext_resource type="PackedScene" uid="uid://butgavw5t41ek" path="res://scenes/sections/messages/messages.tscn" id="2_aum10"]
+[ext_resource type="PackedScene" uid="uid://dadr8nquv4r6" path="res://scenes/sections/top_bar/top_bar.tscn" id="3_a46j4"]
+[ext_resource type="Texture2D" uid="uid://bo4q1it3lo2y0" path="res://assets/icons/call/white.png" id="3_lushf"]
+[ext_resource type="PackedScene" uid="uid://c0jbe2eler0ly" path="res://scenes/sections/bottom_bar/bottom_bar.tscn" id="3_w87pm"]
+[ext_resource type="PackedScene" uid="uid://c2kh51m080v1g" path="res://scenes/sections/report/report.tscn" id="7_23dc1"]
 
 [node name="main_screen" type="Control"]
 layout_mode = 3
@@ -25,12 +29,108 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
+[node name="top_bar_old" type="Panel" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 104.0
+grow_horizontal = 2
+
+[node name="menu" type="TextureButton" parent="top_bar_old"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 18.0
+offset_top = -35.0
+offset_right = 88.0
+offset_bottom = 35.0
+grow_vertical = 2
+texture_normal = ExtResource("1_7fvvs")
+ignore_texture_size = true
+stretch_mode = 5
+
+[node name="date" type="RichTextLabel" parent="top_bar_old"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -524.0
+offset_top = -30.0
+offset_right = 524.0
+offset_bottom = 30.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/normal_font_size = 40
+text = "Saturday 17ᵗʰ January 2026"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="time" type="RichTextLabel" parent="top_bar_old"]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -331.0
+offset_top = -30.0
+offset_right = -39.0
+offset_bottom = 30.0
+grow_horizontal = 0
+grow_vertical = 2
+theme_override_font_sizes/normal_font_size = 32
+text = "15:05"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="status" type="RichTextLabel" parent="top_bar_old"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 108.0
+offset_top = -30.0
+offset_right = 642.0
+offset_bottom = 30.0
+grow_vertical = 2
+theme_override_colors/default_color = Color(0, 0.9183551, 0.28370306, 1)
+theme_override_font_sizes/normal_font_size = 32
+text = "[✓] NO INCIDENT"
+vertical_alignment = 1
+
+[node name="top_bar" parent="." instance=ExtResource("3_a46j4")]
+layout_mode = 1
+anchors_preset = -1
+anchor_bottom = 0.096296296
+offset_bottom = 0.0
+grow_horizontal = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="bottom_bar" parent="." instance=ExtResource("3_w87pm")]
+layout_mode = 1
+grow_horizontal = 1
+
 [node name="messages" parent="." instance=ExtResource("2_aum10")]
 layout_mode = 1
-offset_left = -680.0
-offset_top = -560.0
+anchors_preset = -1
+anchor_left = 0.33828124
+anchor_top = 0.3824074
+anchor_right = 0.6617187
+anchor_bottom = 0.90092593
+offset_left = 0.0
+offset_top = 0.0
 offset_right = 0.0
-offset_bottom = 0.0
+metadata/_edit_use_anchors_ = true
+
+[node name="report" parent="." instance=ExtResource("7_23dc1")]
+layout_mode = 1
+anchor_left = 0.6635417
+anchor_right = 1.0
+grow_horizontal = 1
 
 [node name="messages_old" type="Panel" parent="."]
 visible = false
@@ -124,27 +224,26 @@ text = "MAP GOES HERE"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="report" type="Panel" parent="."]
+[node name="report_old" type="Panel" parent="."]
 visible = false
 layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -589.0
-offset_top = -433.0
-offset_right = 76.0
-offset_bottom = 424.0
+anchors_preset = -1
+anchor_left = 0.19322917
+anchor_top = 0.09907407
+anchor_right = 0.5395833
+anchor_bottom = 0.8925926
+offset_left = 902.0
+offset_right = 882.9999
+offset_bottom = 9.0
 grow_horizontal = 2
-grow_vertical = 2
 
-[node name="temporary" type="RichTextLabel" parent="report"]
+[node name="temporary" type="RichTextLabel" parent="report_old"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 offset_left = 1.0
+offset_top = -1.0
 offset_right = -1.0
 grow_horizontal = 2
 grow_vertical = 2
@@ -153,21 +252,20 @@ text = "REPORT GOES HERE"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="buttons" type="Panel" parent="report"]
+[node name="buttons" type="Panel" parent="report_old"]
 layout_mode = 1
 anchors_preset = 7
 anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -321.5
-offset_top = 2.0
-offset_right = 331.5
-offset_bottom = 108.0
+offset_left = -318.0
+offset_top = -106.0
+offset_right = 318.0
 grow_horizontal = 2
 grow_vertical = 0
 
-[node name="HBoxContainer" type="HBoxContainer" parent="report/buttons"]
+[node name="HBoxContainer" type="HBoxContainer" parent="report_old/buttons"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -176,25 +274,25 @@ grow_horizontal = 2
 grow_vertical = 2
 alignment = 1
 
-[node name="clear" type="Button" parent="report/buttons/HBoxContainer"]
+[node name="clear" type="Button" parent="report_old/buttons/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_font_sizes/font_size = 32
 text = "CLEAR"
 
-[node name="radio" type="Button" parent="report/buttons/HBoxContainer"]
+[node name="radio" type="Button" parent="report_old/buttons/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_font_sizes/font_size = 32
 text = "--"
 
-[node name="radio2" type="Button" parent="report/buttons/HBoxContainer"]
+[node name="radio2" type="Button" parent="report_old/buttons/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_font_sizes/font_size = 32
 text = "--"
 
-[node name="superiors" type="Button" parent="report/buttons/HBoxContainer"]
+[node name="superiors" type="Button" parent="report_old/buttons/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_font_sizes/font_size = 32
@@ -225,78 +323,32 @@ text = "UNITS GOES HERE"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="topbar" type="Panel" parent="."]
+[node name="bottom_bar_old" type="Panel" parent="."]
 visible = false
 layout_mode = 1
-anchors_preset = 10
+anchors_preset = -1
+anchor_top = 0.9027778
 anchor_right = 1.0
-offset_bottom = 104.0
+anchor_bottom = 0.9990741
 grow_horizontal = 2
+metadata/_edit_use_anchors_ = true
 
-[node name="menu" type="TextureButton" parent="topbar"]
-layout_mode = 1
-anchors_preset = 4
-anchor_top = 0.5
-anchor_bottom = 0.5
-offset_left = 18.0
-offset_top = -35.0
-offset_right = 88.0
-offset_bottom = 35.0
-grow_vertical = 2
-texture_normal = ExtResource("1_7fvvs")
-ignore_texture_size = true
-stretch_mode = 5
-
-[node name="date" type="RichTextLabel" parent="topbar"]
+[node name="call" type="TextureButton" parent="bottom_bar_old"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -524.0
-offset_top = -30.0
-offset_right = 524.0
-offset_bottom = 30.0
+offset_left = -35.0
+offset_top = -35.0
+offset_right = 35.0
+offset_bottom = 35.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_font_sizes/normal_font_size = 40
-text = "Saturday 17ᵗʰ January 2026"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="time" type="RichTextLabel" parent="topbar"]
-layout_mode = 1
-anchors_preset = 6
-anchor_left = 1.0
-anchor_top = 0.5
-anchor_right = 1.0
-anchor_bottom = 0.5
-offset_left = -331.0
-offset_top = -30.0
-offset_right = -39.0
-offset_bottom = 30.0
-grow_horizontal = 0
-grow_vertical = 2
-theme_override_font_sizes/normal_font_size = 32
-text = "15:05"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="status" type="RichTextLabel" parent="topbar"]
-layout_mode = 1
-anchors_preset = 4
-anchor_top = 0.5
-anchor_bottom = 0.5
-offset_left = 108.0
-offset_top = -30.0
-offset_right = 642.0
-offset_bottom = 30.0
-grow_vertical = 2
-theme_override_colors/default_color = Color(0, 0.9183551, 0.28370306, 1)
-theme_override_font_sizes/normal_font_size = 32
-text = "[✓] NO INCIDENT"
-vertical_alignment = 1
+texture_normal = ExtResource("3_lushf")
+ignore_texture_size = true
+stretch_mode = 5
 
 [node name="buttons" type="Panel" parent="."]
 visible = false

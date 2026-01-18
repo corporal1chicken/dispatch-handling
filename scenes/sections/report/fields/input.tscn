@@ -1,0 +1,70 @@
+[gd_scene load_steps=4 format=3 uid="uid://bb3veltw1t7us"]
+
+[ext_resource type="Script" uid="uid://bg64kjtctv0v1" path="res://scenes/sections/report/fields/input.gd" id="1_lncdm"]
+[ext_resource type="Texture2D" uid="uid://cdpk3qae86a76" path="res://assets/icons/warning/white.png" id="1_w8en7"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lncdm"]
+content_margin_left = 0.0
+content_margin_top = 0.0
+content_margin_right = 0.0
+content_margin_bottom = 0.0
+bg_color = Color(0.101960786, 0.101960786, 0.101960786, 0)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+corner_detail = 5
+
+[node name="input" type="Panel"]
+anchors_preset = -1
+anchor_left = 0.42552084
+anchor_top = 0.45462963
+anchor_right = 0.584375
+anchor_bottom = 0.5277778
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_lncdm")
+script = ExtResource("1_lncdm")
+metadata/_edit_use_anchors_ = true
+
+[node name="title" type="RichTextLabel" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.025316553
+anchor_right = 1.0000001
+anchor_bottom = 0.44220212
+text = "TITLE GOES HERE"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="field" type="LineEdit" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.46835443
+anchor_right = 1.0
+anchor_bottom = 0.8607595
+placeholder_text = "Input Line Text"
+metadata/_edit_use_anchors_ = true
+
+[node name="required" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -28.0
+offset_right = -3.0
+offset_bottom = 25.0
+grow_horizontal = 0
+grow_vertical = 2
+texture = ExtResource("1_w8en7")
+expand_mode = 1
+stretch_mode = 4
+
+[connection signal="focus_exited" from="field" to="." method="_on_field_focus_exited"]
+[connection signal="gui_input" from="field" to="." method="_on_field_gui_input"]
+[connection signal="mouse_entered" from="field" to="." method="_on_field_mouse_entered"]
+[connection signal="mouse_exited" from="field" to="." method="_on_field_mouse_exited"]
+[connection signal="text_changed" from="field" to="." method="_on_field_text_changed"]

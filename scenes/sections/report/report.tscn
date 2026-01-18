@@ -1,0 +1,150 @@
+[gd_scene load_steps=3 format=3 uid="uid://c2kh51m080v1g"]
+
+[ext_resource type="Script" uid="uid://dos67gx6vexmt" path="res://scenes/sections/report/report.gd" id="1_krapo"]
+[ext_resource type="PackedScene" uid="uid://bb3veltw1t7us" path="res://scenes/sections/report/fields/input.tscn" id="2_v08cn"]
+
+[node name="report" type="Panel"]
+anchors_preset = -1
+anchor_left = 0.66302085
+anchor_top = 0.09907407
+anchor_right = 0.9994791
+anchor_bottom = 0.90092593
+grow_horizontal = 2
+script = ExtResource("1_krapo")
+metadata/_edit_use_anchors_ = true
+
+[node name="temporary" type="RichTextLabel" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 1.0
+offset_top = -1.0
+offset_right = -1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/normal_font_size = 70
+text = "REPORT GOES HERE"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="title" type="RichTextLabel" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -285.0
+offset_top = 9.0
+offset_right = 285.0
+offset_bottom = 77.0
+grow_horizontal = 2
+theme_override_font_sizes/normal_font_size = 36
+text = "CALL_001"
+horizontal_alignment = 1
+
+[node name="id" type="RichTextLabel" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -285.0
+offset_top = 59.0
+offset_right = 285.0
+offset_bottom = 87.0
+grow_horizontal = 2
+theme_override_colors/default_color = Color(0.50928617, 0.50928617, 0.50928617, 1)
+theme_override_font_sizes/normal_font_size = 18
+text = "ID: call_001"
+horizontal_alignment = 1
+
+[node name="seperator" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.027863689
+anchor_top = 0.11316397
+anchor_right = 0.9721363
+anchor_bottom = 0.11547344
+grow_horizontal = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="buttons" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -321.99994
+offset_top = -106.0
+offset_right = 322.00006
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="buttons"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="clear" type="Button" parent="buttons/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 32
+text = "CLEAR"
+
+[node name="none" type="Button" parent="buttons/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 32
+text = "--"
+
+[node name="none2" type="Button" parent="buttons/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 32
+text = "--"
+
+[node name="send" type="Button" parent="buttons/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 32
+text = "SEND"
+
+[node name="fields" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_bottom = -113.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="location" parent="fields" instance=ExtResource("2_v08cn")]
+layout_mode = 1
+anchor_left = 0.041795675
+anchor_top = 0.16467462
+anchor_right = 0.58359146
+anchor_bottom = 0.2378228
+grow_horizontal = 1
+grow_vertical = 1
+title = "LOCATION"
+placeholder_text = "Approx. Location"
+required = true
+
+[node name="location2" parent="fields" instance=ExtResource("2_v08cn")]
+layout_mode = 1
+anchor_left = 0.041795675
+anchor_top = 0.26427624
+anchor_right = 0.9721364
+anchor_bottom = 0.3374244
+grow_horizontal = 1
+grow_vertical = 1
+title = "OPERATOR NOTES"
+placeholder_text = "Your Notes Here"
+
+[connection signal="pressed" from="buttons/HBoxContainer/clear" to="." method="_on_clear_pressed"]
+[connection signal="pressed" from="buttons/HBoxContainer/send" to="." method="_on_send_pressed"]

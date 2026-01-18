@@ -1,0 +1,26 @@
+{
+	"internal_id": "call_001",
+	"external_id": "#A62XH4",
+	"title": "break in",
+	"number": "unknown",
+	"report_answers": {
+		"location": "32 London Road"
+	},
+	"tags": ["large_weapon", "potential_victim", "multiple_suspects"],
+	"transcript": [
+		{"user": "OPERATOR", "message": "999. Police, Fire or Ambulance?"},
+		{"user": "CALLER", "message": "Hello? I need help, I think someone broke in"},
+		{"user": "OPERATOR", "message": "Alright, what's the address?"},
+		{"user": "CALLER", "message": "My address is 32 London Road, I can hear them coming up the stairs"},
+		{"user": "OPERATOR", "message": "Okay, I've dispatched police officers, and they're on their way."},
+		{"user": "OPERATOR", "message": "Are you in a safe place?"},
+		{"user": "CALLER", "message": "I think so, I'm hiding in a closet"},
+		{"user": "OPERATOR", "message": "Are thee any weapons inside the house?"},
+		{"user": "CALLER", "message": "There's a gun safe inside the mast- oh god.. I just heard the safe open"},
+		{"user": "CALLER", "message": "How far away are the police??"},
+		{"user": "OPERATOR", "message": "They're on their way, can you tell me what type of weapon it is?"},
+		{"user": "CALLER", "message": "I'm not sure, I think it's a rifle?"},
+		{"user": "OPERATOR", "message": "Can you tell me how many people there?"},
+		{"user": "CALLER", "message": "Maybe like 1 or 2? I'm not sure"},
+	],
+}
