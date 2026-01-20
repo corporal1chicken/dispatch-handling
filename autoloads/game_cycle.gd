@@ -21,16 +21,13 @@ func _ready():
 	
 	_start_call()
 
-func pick_random_call() -> Dictionary:
-	var path = shift_calls.pick_random()
-	shift_calls.erase(path)
-	
+func get_file_contents(path: String):
 	var file: FileAccess = FileAccess.open(path, FileAccess.READ)
 	var text = file.get_as_text()
 	file.close()
 	
 	var data = JSON.parse_string(text)
-	
+
 	return data
 
 func get_shift_calls() -> Array:
@@ -45,11 +42,14 @@ func get_shift_calls() -> Array:
 		file = directory.get_next()
 		
 	directory.list_dir_end()
-	
+
 	return files
 
 func _start_call():
 	call_timer.start(TIME_BETWEEN_CALLS)
 	await call_timer.timeout
 	
-	Signals.call_recieved.emit(pick_random_call())
+	var path = shift_calls.pick_random()
+	shift_calls.erase(path)
+	
+	Signals.call_recieved.emit(get_file_contents(path))

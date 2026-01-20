@@ -1,7 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://bb3veltw1t7us"]
+[gd_scene load_steps=6 format=3 uid="uid://bb3veltw1t7us"]
 
-[ext_resource type="Script" uid="uid://bg64kjtctv0v1" path="res://scenes/sections/report/fields/input.gd" id="1_lncdm"]
+[ext_resource type="Script" uid="uid://bg64kjtctv0v1" path="res://scenes/sections/report/fields/input/input.gd" id="1_lncdm"]
 [ext_resource type="Texture2D" uid="uid://cdpk3qae86a76" path="res://assets/icons/warning/white.png" id="1_w8en7"]
+[ext_resource type="StyleBox" uid="uid://bybupvcmomlbp" path="res://resources/styles/lineedit_normal.tres" id="2_viyi0"]
+[ext_resource type="StyleBox" uid="uid://dmdmsnk6npaau" path="res://resources/styles/lineedit_focus.tres" id="3_74b45"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lncdm"]
 content_margin_left = 0.0
@@ -30,9 +32,8 @@ metadata/_edit_use_anchors_ = true
 [node name="title" type="RichTextLabel" parent="."]
 layout_mode = 1
 anchors_preset = -1
-anchor_top = 0.025316553
 anchor_right = 1.0000001
-anchor_bottom = 0.44220212
+anchor_bottom = 0.41688567
 text = "TITLE GOES HERE"
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -41,9 +42,12 @@ metadata/_edit_use_anchors_ = true
 [node name="field" type="LineEdit" parent="."]
 layout_mode = 1
 anchors_preset = -1
-anchor_top = 0.46835443
-anchor_right = 1.0
-anchor_bottom = 0.8607595
+anchor_left = 0.016393442
+anchor_top = 0.4556962
+anchor_right = 1.0163934
+anchor_bottom = 0.84810126
+theme_override_styles/normal = ExtResource("2_viyi0")
+theme_override_styles/focus = ExtResource("3_74b45")
 placeholder_text = "Input Line Text"
 metadata/_edit_use_anchors_ = true
 
@@ -54,9 +58,10 @@ anchor_left = 1.0
 anchor_top = 0.5
 anchor_right = 1.0
 anchor_bottom = 0.5
-offset_left = -28.0
-offset_right = -3.0
-offset_bottom = 25.0
+offset_left = -27.0
+offset_top = -0.5
+offset_right = -5.0
+offset_bottom = 21.5
 grow_horizontal = 0
 grow_vertical = 2
 texture = ExtResource("1_w8en7")
