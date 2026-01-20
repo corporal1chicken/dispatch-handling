@@ -1,7 +1,7 @@
 extends Node
 
 const CALL_FOLDER: String = "res://data/calls/"
-const TIME_BETWEEN_CALLS: float = 10.0
+const TIME_BETWEEN_CALLS: float = 1.0
 
 var current_shift: String = "shift_001"
 var shift_calls: Array = []

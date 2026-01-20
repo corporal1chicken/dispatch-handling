@@ -1,8 +1,9 @@
-[gd_scene load_steps=7 format=3 uid="uid://b7n5qfqthesmn"]
+[gd_scene load_steps=8 format=3 uid="uid://b7n5qfqthesmn"]
 
 [ext_resource type="Script" uid="uid://ca4vb84r0241y" path="res://scenes/sections/report/fields/tickbox/tickbox.gd" id="1_bjy62"]
 [ext_resource type="Texture2D" uid="uid://cdpk3qae86a76" path="res://assets/icons/warning/white.png" id="2_ejqmc"]
 [ext_resource type="Texture2D" uid="uid://dyhkjycqw1ow0" path="res://assets/icons/tick/white.png" id="3_u81bt"]
+[ext_resource type="Texture2D" uid="uid://dfkv5cn4qhxnb" path="res://assets/icons/lock/unlocked_green.png" id="4_wm8f2"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lncdm"]
 content_margin_left = 0.0
@@ -117,4 +118,19 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/normal = SubResource("StyleBoxFlat_7mx58")
 
+[node name="lock_field" type="TextureButton" parent="."]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = -28.0
+offset_top = -11.0
+offset_right = -6.0
+offset_bottom = 11.0
+grow_vertical = 2
+texture_normal = ExtResource("4_wm8f2")
+ignore_texture_size = true
+stretch_mode = 4
+
 [connection signal="pressed" from="tick/button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="lock_field" to="." method="_on_lock_field_pressed"]

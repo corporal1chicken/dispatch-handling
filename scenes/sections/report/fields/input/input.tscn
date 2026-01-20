@@ -1,9 +1,10 @@
-[gd_scene load_steps=6 format=3 uid="uid://bb3veltw1t7us"]
+[gd_scene load_steps=7 format=3 uid="uid://bb3veltw1t7us"]
 
 [ext_resource type="Script" uid="uid://bg64kjtctv0v1" path="res://scenes/sections/report/fields/input/input.gd" id="1_lncdm"]
 [ext_resource type="Texture2D" uid="uid://cdpk3qae86a76" path="res://assets/icons/warning/white.png" id="1_w8en7"]
 [ext_resource type="StyleBox" uid="uid://bybupvcmomlbp" path="res://resources/styles/lineedit_normal.tres" id="2_viyi0"]
 [ext_resource type="StyleBox" uid="uid://dmdmsnk6npaau" path="res://resources/styles/lineedit_focus.tres" id="3_74b45"]
+[ext_resource type="Texture2D" uid="uid://dfkv5cn4qhxnb" path="res://assets/icons/lock/unlocked_green.png" id="5_74b45"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lncdm"]
 content_margin_left = 0.0
@@ -68,8 +69,23 @@ texture = ExtResource("1_w8en7")
 expand_mode = 1
 stretch_mode = 4
 
+[node name="lock_field" type="TextureButton" parent="."]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = -23.0
+offset_top = 2.5
+offset_right = -1.0
+offset_bottom = 24.5
+grow_vertical = 2
+texture_normal = ExtResource("5_74b45")
+ignore_texture_size = true
+stretch_mode = 4
+
 [connection signal="focus_exited" from="field" to="." method="_on_field_focus_exited"]
 [connection signal="gui_input" from="field" to="." method="_on_field_gui_input"]
 [connection signal="mouse_entered" from="field" to="." method="_on_field_mouse_entered"]
 [connection signal="mouse_exited" from="field" to="." method="_on_field_mouse_exited"]
 [connection signal="text_changed" from="field" to="." method="_on_field_text_changed"]
+[connection signal="pressed" from="lock_field" to="." method="_on_lock_field_pressed"]

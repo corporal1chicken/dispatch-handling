@@ -1,0 +1,179 @@
+[gd_scene load_steps=7 format=3 uid="uid://c8yaap8r7a7xb"]
+
+[ext_resource type="Script" uid="uid://deg7txhxgv76m" path="res://scenes/sections/report/fields/dropdown/dropdown.gd" id="1_3q0xw"]
+[ext_resource type="StyleBox" uid="uid://bybupvcmomlbp" path="res://resources/styles/lineedit_normal.tres" id="2_8xwbb"]
+[ext_resource type="Texture2D" uid="uid://cdpk3qae86a76" path="res://assets/icons/warning/white.png" id="3_yecjq"]
+[ext_resource type="Texture2D" uid="uid://dfkv5cn4qhxnb" path="res://assets/icons/lock/unlocked_green.png" id="4_yjoa8"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lncdm"]
+content_margin_left = 0.0
+content_margin_top = 0.0
+content_margin_right = 0.0
+content_margin_bottom = 0.0
+bg_color = Color(0.101960786, 0.101960786, 0.101960786, 0)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+corner_detail = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8xwbb"]
+content_margin_left = 4.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(0, 0, 0, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+corner_detail = 5
+
+[node name="dropdown" type="Panel"]
+anchors_preset = -1
+anchor_left = 0.42552084
+anchor_top = 0.45462963
+anchor_right = 0.50885415
+anchor_bottom = 0.5277778
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_lncdm")
+script = ExtResource("1_3q0xw")
+metadata/_edit_use_anchors_ = true
+
+[node name="title" type="RichTextLabel" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0000001
+anchor_bottom = 0.41688567
+text = "TITLE GOES HERE"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="field" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.016393442
+anchor_top = 0.4556962
+anchor_right = 1.0163934
+anchor_bottom = 0.84810126
+theme_override_styles/panel = ExtResource("2_8xwbb")
+metadata/_edit_use_anchors_ = true
+
+[node name="required" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -27.0
+offset_top = -0.5
+offset_right = -5.0
+offset_bottom = 21.5
+grow_horizontal = 0
+grow_vertical = 2
+texture = ExtResource("3_yecjq")
+expand_mode = 1
+stretch_mode = 4
+
+[node name="lock_field" type="TextureButton" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -0.14375
+anchor_top = 0.5316456
+anchor_right = -0.00625
+anchor_bottom = 0.8101266
+grow_vertical = 2
+texture_normal = ExtResource("4_yjoa8")
+ignore_texture_size = true
+stretch_mode = 4
+metadata/_edit_use_anchors_ = true
+
+[node name="expand" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.6999998
+anchor_top = 0.46835443
+anchor_right = 0.7874998
+anchor_bottom = 0.79746836
+theme_override_font_sizes/font_size = 12
+theme_override_styles/normal = SubResource("StyleBoxFlat_8xwbb")
+text = "↓"
+metadata/_edit_use_anchors_ = true
+
+[node name="menu" type="Panel" parent="expand"]
+visible = false
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -7.7857165
+anchor_top = 1.3076923
+anchor_right = 3.6428561
+anchor_bottom = 4.0384617
+offset_left = 1.5258789e-05
+metadata/_edit_use_anchors_ = true
+
+[node name="1" type="Button" parent="expand/menu"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.125
+anchor_right = 0.875
+anchor_bottom = 0.1971831
+size_flags_vertical = 3
+metadata/_edit_use_anchors_ = true
+
+[node name="2" type="Button" parent="expand/menu"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.125
+anchor_top = 0.2535211
+anchor_right = 0.875
+anchor_bottom = 0.46478873
+size_flags_vertical = 3
+metadata/_edit_use_anchors_ = true
+
+[node name="3" type="Button" parent="expand/menu"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.125
+anchor_top = 0.52112675
+anchor_right = 0.875
+anchor_bottom = 0.73239434
+size_flags_vertical = 3
+metadata/_edit_use_anchors_ = true
+
+[node name="4" type="Button" parent="expand/menu"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.125
+anchor_top = 0.7887324
+anchor_right = 0.875
+anchor_bottom = 1.0
+size_flags_vertical = 3
+metadata/_edit_use_anchors_ = true
+
+[node name="option_text" type="RichTextLabel" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.025
+anchor_top = 0.49367088
+anchor_right = 0.68125
+anchor_bottom = 0.7848101
+text = "None Set"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[connection signal="focus_exited" from="field" to="." method="_on_field_focus_exited"]
+[connection signal="gui_input" from="field" to="." method="_on_field_gui_input"]
+[connection signal="mouse_entered" from="field" to="." method="_on_field_mouse_entered"]
+[connection signal="mouse_exited" from="field" to="." method="_on_field_mouse_exited"]
+[connection signal="pressed" from="lock_field" to="." method="_on_lock_field_pressed"]
+[connection signal="mouse_exited" from="expand" to="." method="_on_expand_mouse_exited"]
+[connection signal="pressed" from="expand" to="." method="_on_expand_pressed"]

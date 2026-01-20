@@ -5,15 +5,15 @@ extends Panel
 var statuses: Dictionary = {
 	active = {
 		text = "[!] ACTIVE INCIDENT",
-		hex = "ff782e"
+		hex = "f90032" # Red
 	},
 	none = {
 		text = "[✓] NO INCIDENT",
-		hex = "00ea48",
+		hex = "00ea48", # Green
 	},
 	incoming = {
 		text = "[-] INCOMING INCIDENT",
-		hex = "f90032"
+		hex = "ff782e" # Orange
 	}
 }
 

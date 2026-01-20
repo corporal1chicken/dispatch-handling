@@ -36,7 +36,7 @@ func _create_call(call_data):
 			new_label.text = "[color=red][%s]: [color=white]%s" % [info.user, info.message]
 			new_label.name = str(index)
 			
-			new_label.position = Vector2(30, current_y)
+			new_label.position = Vector2(189.0, current_y)
 			current_y += SPACING_BETWEEN_MESSAGE
 			
 	call_holder.custom_minimum_size.y = SPACING_BETWEEN_MESSAGE * call_data.transcript.size()

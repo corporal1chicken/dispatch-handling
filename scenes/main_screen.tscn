@@ -117,8 +117,8 @@ grow_horizontal = 1
 [node name="messages" parent="." instance=ExtResource("2_aum10")]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.33828124
-anchor_top = 0.3824074
+anchor_left = 0.28958333
+anchor_top = 0.5287037
 anchor_right = 0.6617187
 anchor_bottom = 0.90092593
 offset_left = 0.0
@@ -202,15 +202,14 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="map" type="Panel" parent="."]
-visible = false
 layout_mode = 1
-anchors_preset = 1
-anchor_left = 1.0
-anchor_right = 1.0
-offset_left = -882.0
-offset_top = 107.0
-offset_bottom = 517.0
+anchors_preset = -1
+anchor_left = 0.29010418
+anchor_top = 0.09907407
+anchor_right = 0.66197914
+anchor_bottom = 0.52592593
 grow_horizontal = 0
+metadata/_edit_use_anchors_ = true
 
 [node name="temporary" type="RichTextLabel" parent="map"]
 layout_mode = 1
@@ -299,15 +298,13 @@ theme_override_font_sizes/font_size = 32
 text = "SEND"
 
 [node name="units" type="Panel" parent="."]
-visible = false
 layout_mode = 1
-anchors_preset = 4
-anchor_top = 0.5
-anchor_bottom = 0.5
-offset_top = -433.0
-offset_right = 371.0
-offset_bottom = 276.0
+anchors_preset = -1
+anchor_top = 0.09907407
+anchor_right = 0.28854167
+anchor_bottom = 0.90092593
 grow_vertical = 2
+metadata/_edit_use_anchors_ = true
 
 [node name="temporary" type="RichTextLabel" parent="units"]
 layout_mode = 1
@@ -316,6 +313,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 offset_left = -1.0
 offset_right = -1.0
+offset_bottom = 5.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_font_sizes/normal_font_size = 70

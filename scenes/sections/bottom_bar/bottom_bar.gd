@@ -13,10 +13,10 @@ func _ready():
 
 func _on_call_pressed():
 	Signals.call_accepted.emit()
-	$call.texture_normal = styles.orange
+	$call.texture_normal = styles.red
 
 func _on_new_call(_call_data):
-	$call.texture_normal = styles.red
+	$call.texture_normal = styles.orange
 
 func _on_call_finished():
 	$call.texture_normal = styles.green

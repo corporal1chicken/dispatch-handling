@@ -4,7 +4,8 @@
 	"title": "break in",
 	"number": "unknown",
 	"report_answers": {
-		"location": "32 London Road"
+		"location": "32 London Road",
+		"weapon_involved": "true"
 	},
 	"tags": ["large_weapon", "potential_victim", "multiple_suspects"],
 	"transcript": [
