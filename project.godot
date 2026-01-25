@@ -19,6 +19,7 @@ config/icon="res://icon.svg"
 
 GameCycle="*res://autoloads/game_cycle.gd"
 Signals="*res://autoloads/signals.gd"
+Constants="*res://autoloads/constants.gd"
 
 [debug]
 

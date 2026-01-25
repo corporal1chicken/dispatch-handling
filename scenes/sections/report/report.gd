@@ -13,6 +13,7 @@ var total: int = 0
 func _ready():
 	Signals.call_recieved.connect(_on_call_recieved)
 	Signals.field_lock_change.connect(_on_field_lock_change)
+	Signals.call_accepted.connect(_on_call_accepted)
 
 	total = $fields.get_child_count()
 
@@ -21,24 +22,12 @@ func _on_send_pressed():
 	fields_completed = 0
 	var data: Dictionary = {}
 	
-	#for field in fields.get_children():
-	#	if not field.required: continue
-	#	
-	#	if field.retrieve_field() == null:
-	#		print("Field cannot be empty")
-	#		break
-	#	else:
-	#		fields_completed += 1
-	
 	for field in fields.get_children():
 		var response = field.retrieve_field()
 		
-		if field.required:
-			if response == null:
-				print("%s cannot be empty" % field.key)
-				break
-			else:
-				fields_completed += 1
+		if field.required and response == null:
+			print("%s cannot be empty" % field.key)
+			break
 		else:
 			fields_completed += 1
 		
@@ -47,7 +36,7 @@ func _on_send_pressed():
 	if fields_completed == fields.get_child_count():
 		initial_report_data = data
 		Signals.report_sent.emit()
-	
+
 func _on_clear_pressed() -> void:
 	for field in fields.get_children():
 		field.reset_field()
@@ -67,8 +56,11 @@ func _on_field_lock_change(type: String):
 			required += 1
 		"unlocked":
 			required -= 1
-	
+	print("%d, %d" % [required, total])
 	if required == total:
 		$buttons/HBoxContainer/send.disabled = false
 	else:
 		$buttons/HBoxContainer/send.disabled = true
+		
+func _on_call_accepted():
+	$no_incident.visible = false

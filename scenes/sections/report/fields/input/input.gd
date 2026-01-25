@@ -26,10 +26,7 @@ func _on_field_focus_exited() -> void:
 
 func _on_lock_field_pressed():
 	if field_locked:
-		field_locked = false
-		$field.editable = true
-		$lock_field.texture_normal = textures.unlocked
-		Signals.field_lock_change.emit("unlocked")
+		_unlock_field()
 	else:
 		lock_field()
 	
@@ -37,8 +34,22 @@ func _on_lock_field_pressed():
 func retrieve_field():
 	return $field.text if $field.text != "" else null
 
+func _unlock_field():
+	field_locked = false
+	$field.editable = true
+	$lock_field.texture_normal = textures.unlocked
+	
+	if retrieve_field() == null and required:
+		pass
+	else:
+		Signals.field_lock_change.emit("unlocked")
+
 func lock_field():
 	field_locked = true
 	$field.editable = false
 	$lock_field.texture_normal = textures.locked
-	Signals.field_lock_change.emit("locked")
+	
+	if retrieve_field() == null and required:
+		pass
+	else:
+		Signals.field_lock_change.emit("locked")

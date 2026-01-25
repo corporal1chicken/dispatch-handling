@@ -23,15 +23,18 @@ func reset_field():
 
 func _on_lock_field_pressed() -> void:
 	if field_locked:
-		Signals.field_lock_change.emit("unlocked")
-		field_locked = false
-		$tick/button.disabled = false
-		$lock_field.texture_normal = textures.unlocked
+		unlock_field()
 	else:
 		lock_field()
-	
+
+func unlock_field():
+	Signals.field_lock_change.emit("unlocked")
+	field_locked = false
+	$tick/button.disabled = false
+	$lock_field.texture_normal = textures.unlocked
+
 func lock_field():
+	Signals.field_lock_change.emit("locked")
 	field_locked = true
 	$tick/button.disabled = true
 	$lock_field.texture_normal = textures.locked
-	Signals.field_lock_change.emit("locked")

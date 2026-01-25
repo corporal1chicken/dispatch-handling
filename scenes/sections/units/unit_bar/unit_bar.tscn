@@ -1,0 +1,101 @@
+[gd_scene load_steps=3 format=3 uid="uid://xbjn1fw6x0bw"]
+
+[ext_resource type="Script" uid="uid://bg2trfj5bd30w" path="res://scenes/sections/units/unit_bar/unit_bar.gd" id="1_5vqyw"]
+[ext_resource type="Texture2D" uid="uid://bo4q1it3lo2y0" path="res://assets/icons/call/white.png" id="2_tqh2c"]
+
+[node name="unit_bar" type="Panel"]
+anchors_preset = -1
+anchor_left = 0.409375
+anchor_top = 0.46388888
+anchor_right = 0.590625
+anchor_bottom = 0.5361111
+offset_left = 1.0
+offset_right = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_5vqyw")
+metadata/_edit_use_anchors_ = true
+
+[node name="icon" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.040229887
+anchor_top = 0.21794875
+anchor_right = 0.16954023
+anchor_bottom = 0.7948718
+grow_vertical = 2
+texture = ExtResource("2_tqh2c")
+expand_mode = 1
+stretch_mode = 4
+metadata/_edit_use_anchors_ = true
+
+[node name="title" type="RichTextLabel" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.19540228
+anchor_top = 0.24358974
+anchor_right = 0.7374517
+anchor_bottom = 0.75641024
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/normal_font_size = 20
+text = "Police Unit 1"
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="status" type="RichTextLabel" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.109195404
+anchor_top = -0.41025642
+anchor_right = 0.8908046
+anchor_bottom = -0.051282052
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/normal_font_size = 15
+text = "AVAILABLE"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="tags" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.69540226
+anchor_top = 0.21153846
+anchor_right = 0.82471263
+anchor_bottom = 0.78846157
+grow_horizontal = 0
+grow_vertical = 2
+text = "T"
+metadata/_edit_use_anchors_ = true
+
+[node name="label" type="RichTextLabel" parent="tags"]
+visible = false
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 2.4888883
+anchor_top = 0.23333395
+anchor_right = 6.2888865
+anchor_bottom = 0.7752143
+grow_horizontal = 0
+grow_vertical = 2
+theme_override_font_sizes/normal_font_size = 14
+text = "Transport"
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="extra" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.8333333
+anchor_top = 0.21153846
+anchor_right = 0.9626437
+anchor_bottom = 0.78846157
+grow_horizontal = 0
+grow_vertical = 2
+text = "+"
+metadata/_edit_use_anchors_ = true
+
+[connection signal="mouse_entered" from="tags" to="." method="_on_tags_mouse_entered"]
+[connection signal="mouse_exited" from="tags" to="." method="_on_tags_mouse_exited"]

@@ -1,0 +1,65 @@
+[gd_scene load_steps=3 format=3 uid="uid://c08t7uivx0v6c"]
+
+[ext_resource type="Script" uid="uid://cdevivx7shb7t" path="res://scenes/sections/units/units.gd" id="1_p0lcp"]
+[ext_resource type="PackedScene" uid="uid://xbjn1fw6x0bw" path="res://scenes/sections/units/unit_bar/unit_bar.tscn" id="2_05ltb"]
+
+[node name="units" type="Panel"]
+anchors_preset = -1
+anchor_top = 0.09907407
+anchor_right = 0.28854167
+anchor_bottom = 0.90092593
+grow_vertical = 2
+script = ExtResource("1_p0lcp")
+metadata/_edit_use_anchors_ = true
+
+[node name="caller" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="unit_bar_pos_1" parent="." instance=ExtResource("2_05ltb")]
+visible = false
+layout_mode = 1
+anchor_left = 0.0433213
+anchor_top = 0.026558891
+anchor_right = 0.9620939
+anchor_bottom = 0.13048498
+offset_left = 0.0
+offset_right = 0.0
+grow_vertical = 1
+
+[node name="unit_bar" parent="." instance=ExtResource("2_05ltb")]
+layout_mode = 1
+anchor_left = 0.039711192
+anchor_top = 0.046189375
+anchor_right = 0.6407942
+anchor_bottom = 0.12009238
+offset_left = 0.0
+offset_right = 0.0
+grow_vertical = 1
+
+[node name="requirement" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="label" type="RichTextLabel" parent="requirement"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 1.0
+offset_top = -1.0
+offset_right = -1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/normal_font_size = 70
+text = "NO ACTIVE INCIDENT"
+horizontal_alignment = 1
+vertical_alignment = 1

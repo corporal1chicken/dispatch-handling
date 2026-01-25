@@ -1,9 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://c2kh51m080v1g"]
+[gd_scene load_steps=4 format=3 uid="uid://c2kh51m080v1g"]
 
 [ext_resource type="Script" uid="uid://dos67gx6vexmt" path="res://scenes/sections/report/report.gd" id="1_krapo"]
 [ext_resource type="PackedScene" uid="uid://bb3veltw1t7us" path="res://scenes/sections/report/fields/input/input.tscn" id="2_v08cn"]
 [ext_resource type="PackedScene" uid="uid://b7n5qfqthesmn" path="res://scenes/sections/report/fields/tickbox/tickbox.tscn" id="3_3tgbq"]
-[ext_resource type="PackedScene" uid="uid://c8yaap8r7a7xb" path="res://scenes/sections/report/fields/dropdown/dropdown.tscn" id="4_xkocl"]
 
 [node name="report" type="Panel"]
 anchors_preset = -1
@@ -14,22 +13,6 @@ anchor_bottom = 0.90092593
 grow_horizontal = 2
 script = ExtResource("1_krapo")
 metadata/_edit_use_anchors_ = true
-
-[node name="temporary" type="RichTextLabel" parent="."]
-visible = false
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = 1.0
-offset_top = -1.0
-offset_right = -1.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_font_sizes/normal_font_size = 70
-text = "REPORT GOES HERE"
-horizontal_alignment = 1
-vertical_alignment = 1
 
 [node name="title" type="RichTextLabel" parent="."]
 layout_mode = 1
@@ -162,14 +145,28 @@ required = true
 default_value = false
 key = "weapon_involved"
 
-[node name="dropdown" parent="fields" instance=ExtResource("4_xkocl")]
-visible = false
+[node name="no_incident" type="Panel" parent="."]
 layout_mode = 1
-anchor_top = 0.43824703
-anchor_right = 0.6625387
-anchor_bottom = 0.5498008
-grow_horizontal = 1
-grow_vertical = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="label" type="RichTextLabel" parent="no_incident"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 1.0
+offset_top = -1.0
+offset_right = -1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/normal_font_size = 70
+text = "NO ACTIVE INCIDENT"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [connection signal="pressed" from="buttons/HBoxContainer/clear" to="." method="_on_clear_pressed"]
 [connection signal="pressed" from="buttons/HBoxContainer/none" to="." method="_on_lock_all_pressed"]
