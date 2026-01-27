@@ -34,6 +34,9 @@ func _on_lock_field_pressed():
 func retrieve_field():
 	return $field.text if $field.text != "" else null
 
+func reset_field():
+	$field.text = ""
+
 func _unlock_field():
 	field_locked = false
 	$field.editable = true

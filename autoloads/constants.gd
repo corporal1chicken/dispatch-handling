@@ -7,4 +7,4 @@ const TYPEWRITE_EFFECT_SPEED: float = 0.02
 
 # Game Cycle
 const CALL_FOLDER: String = "res://data/calls/"
-const TIME_BETWEEN_CALLS: float = 10.0
+const TIME_BETWEEN_CALLS: int = 5

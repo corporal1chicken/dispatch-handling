@@ -58,7 +58,22 @@ horizontal_alignment = 1
 vertical_alignment = 1
 metadata/_edit_use_anchors_ = true
 
-[node name="tags" type="Button" parent="."]
+[node name="tags" type="RichTextLabel" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.109195404
+anchor_top = 1.0256411
+anchor_right = 0.8908046
+anchor_bottom = 1.3076924
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/normal_font_size = 10
+text = "[Transport]"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="misc" type="Button" parent="."]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.69540226
@@ -67,10 +82,10 @@ anchor_right = 0.82471263
 anchor_bottom = 0.78846157
 grow_horizontal = 0
 grow_vertical = 2
-text = "T"
+text = "-"
 metadata/_edit_use_anchors_ = true
 
-[node name="label" type="RichTextLabel" parent="tags"]
+[node name="label" type="RichTextLabel" parent="misc"]
 visible = false
 layout_mode = 1
 anchors_preset = -1
@@ -81,7 +96,7 @@ anchor_bottom = 0.7752143
 grow_horizontal = 0
 grow_vertical = 2
 theme_override_font_sizes/normal_font_size = 14
-text = "Transport"
+text = "something here"
 vertical_alignment = 1
 metadata/_edit_use_anchors_ = true
 
@@ -97,5 +112,63 @@ grow_vertical = 2
 text = "+"
 metadata/_edit_use_anchors_ = true
 
-[connection signal="mouse_entered" from="tags" to="." method="_on_tags_mouse_entered"]
-[connection signal="mouse_exited" from="tags" to="." method="_on_tags_mouse_exited"]
+[node name="popup" type="Panel" parent="extra"]
+visible = false
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 1.4222223
+anchor_top = -0.92222214
+anchor_right = 5.4888887
+anchor_bottom = 1.922222
+grow_horizontal = 0
+grow_vertical = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="HBoxContainer" type="HBoxContainer" parent="extra/popup"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="VBoxContainer" type="VBoxContainer" parent="extra/popup/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="none" type="Button" parent="extra/popup/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+text = "--"
+
+[node name="hold" type="Button" parent="extra/popup/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+text = "Hold"
+
+[node name="role" type="Button" parent="extra/popup/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+text = "Role"
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="extra/popup/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="mode" type="Button" parent="extra/popup/HBoxContainer/VBoxContainer2"]
+layout_mode = 2
+size_flags_vertical = 3
+text = "Mode"
+
+[node name="dispatch" type="Button" parent="extra/popup/HBoxContainer/VBoxContainer2"]
+layout_mode = 2
+size_flags_vertical = 3
+text = "		Dispatch"
+
+[connection signal="mouse_entered" from="misc" to="." method="_on_tags_mouse_entered"]
+[connection signal="mouse_exited" from="misc" to="." method="_on_tags_mouse_exited"]
+[connection signal="mouse_entered" from="extra" to="." method="_on_extra_mouse_entered"]
+[connection signal="mouse_exited" from="extra" to="." method="_on_extra_mouse_exited"]
+[connection signal="pressed" from="extra" to="." method="_on_extra_pressed"]
+[connection signal="mouse_exited" from="extra/popup" to="." method="_on_popup_mouse_exited"]

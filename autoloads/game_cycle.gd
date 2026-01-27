@@ -3,7 +3,8 @@ extends Node
 var current_shift: String = "shift_001"
 var shift_calls: Array = []
 
-var call_timer: Timer
+var in_call: bool = false
+var time_since_call: int = 0
 
 var game_timer: Timer
 
@@ -14,24 +15,23 @@ func _ready():
 	
 	shift_calls = get_shift_calls()
 	
-	call_timer = Timer.new()
-	add_child(call_timer)
-	
-	call_timer.autostart = false
-	call_timer.one_shot = false
-	
 	game_timer = Timer.new()
 	add_child(game_timer)
 	game_timer.autostart = false
 	game_timer.one_shot = false
-	game_timer.start()
 	game_timer.timeout.connect(_on_test_timer_timeout)
 	
-	_start_call()
+	Signals.shift_started.connect(_on_shift_started)
 
 func _on_test_timer_timeout():
 	total_seconds += 1
+	time_since_call += 1
 	Signals.second_tick.emit(get_timestamp())
+	
+	if time_since_call >= Constants.TIME_BETWEEN_CALLS and not in_call:
+		print(time_since_call)
+		_start_call()
+		time_since_call = 0
 	
 func get_timestamp() -> String:
 	var current_seconds = total_seconds
@@ -67,10 +67,11 @@ func get_shift_calls() -> Array:
 	return files
 
 func _start_call():
-	call_timer.start(Constants.TIME_BETWEEN_CALLS)
-	await call_timer.timeout
-	
 	var path = shift_calls.pick_random()
 	shift_calls.erase(path)
 	
 	Signals.call_recieved.emit(get_file_contents(path))
+	in_call = true
+
+func _on_shift_started():
+	game_timer.start(1.0)
